@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "swiftconnectiontofirebas-3b068": {
+      "hosting": {
+        "my-app": [
+          "swiftconnectiontofirebas-3b068"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "swiftconnectiontofirebas-3b068"
+  }
+}

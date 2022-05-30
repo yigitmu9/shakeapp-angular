@@ -1,0 +1,30 @@
+<h1>Data Table</h1>
+<div class="table-wrapper">
+  <table class="fl-table" >
+    <thead>
+    <tr>
+      <th>Date and Time</th>
+      <th>X Acceleration</th>
+      <th>Y Acceleration</th>
+      <th>Z Acceleration</th>
+      <th>Place</th>
+      <th>Coordinates</th>
+      <th>Device</th>
+    </tr>
+    </thead>
+    <tbody >
+    <tr *ngFor="let year of years | async">
+      <td>{{year.payload.val().date}}</td>
+      <td>{{year.payload.val().accx}} G</td>
+      <td>{{year.payload.val().accy}} G</td>
+      <td>{{year.payload.val().accz}} G</td>
+      <td>{{year.payload.val().place}}</td>
+      <td>{{year.payload.val().coordinates}}</td>
+      <td>{{year.payload.val().device}}</td>
+
+    </tr>
+
+
+    <tbody>
+  </table>
+</div>
