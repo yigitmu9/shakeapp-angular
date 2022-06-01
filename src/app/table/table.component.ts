@@ -3,6 +3,7 @@ import { Firestore, collectionData, collection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import {AngularFireDatabase} from "@angular/fire/compat/database";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
+import {getDatabase, onValue, ref} from "firebase/database";
 
 
 
@@ -24,6 +25,7 @@ export class TableComponent {
 
 
   ngOnInit(): void {
+
 
   }
 

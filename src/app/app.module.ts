@@ -20,6 +20,7 @@ import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import { ChartsComponent } from './charts/charts.component';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 
 
@@ -46,7 +47,8 @@ import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
     provideRemoteConfig(() => getRemoteConfig()),
     provideStorage(() => getStorage()),
     NgChartsModule,
-    MdbCheckboxModule
+    MdbCheckboxModule,
+    NgApexchartsModule
   ],
   providers: [
     ScreenTrackingService,UserTrackingService
