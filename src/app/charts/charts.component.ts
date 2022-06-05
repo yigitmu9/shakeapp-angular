@@ -14,32 +14,33 @@ import { getDatabase, ref, onValue} from "firebase/database";
 export class ChartsComponent {
 
 
-  data$ : any;
+  data$: any;
   //years: Observable<any>;
-  dataX:number[]  =  [];
-  dataY:number[]  =  [];
-  dataZ:number[]  =  [];
-  date:string[]  =  [];
+  dataX: number[] = [];
+  dataY: number[] = [];
+  dataZ: number[] = [];
+  date: string[] = [];
+  todaysOrders: string[] = []
 
   constructor(private db: AngularFireDatabase) {
 
 
-/*
-    this.years = db.list('/').snapshotChanges();
-    //this.years.subscribe(payload => console.log(payload))
-    this.years = db.list('/').snapshotChanges().pipe(map(actions => {
-      return actions.map(a => {
-        const key = a.payload;
-        const id = a.payload.val();
-        // console.log(id);
-      })
-    }))
+    /*
+        this.years = db.list('/').snapshotChanges();
+        //this.years.subscribe(payload => console.log(payload))
+        this.years = db.list('/').snapshotChanges().pipe(map(actions => {
+          return actions.map(a => {
+            const key = a.payload;
+            const id = a.payload.val();
+            // console.log(id);
+          })
+        }))
 
- */
-
+     */
 
 
   }
+
   ngOnInit() {
     /*
     const datab = getDatabase();
@@ -51,57 +52,78 @@ export class ChartsComponent {
 
      */
 
-    this.db.list('/').valueChanges().subscribe((t)=> {
-      t.forEach((element: any) => {
-        console.log(element.accx)
-        this.dataX.push(element.accx)
-        this.dataY.push(element.accy)
-        this.dataZ.push(element.accz)
-        this.date.push(element.date)
-      });
-
-      const myChart = new Chart('myChart', {
-        type: 'line',
-        data: {
-          labels: this.date,
-          datasets: [{
-            label: 'X Acceleration (G)',
-            data: this.dataX,
-
-            borderWidth: 1
-          },
-            {
-              label: 'Y Acceleration (G)',
-              data: this.dataY,
-
-              borderWidth: 1
-            },
-
-            {
-              label: 'Z Acceleration (G)',
-              data: this.dataZ,
-
-              borderWidth: 1
-            }
-
-          ],
-
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
-
-            },
-
-          },
-
-
-        }
-      });
-      this.data$ = t
-
-
+/*
+    Object.entries(this.db.list('/')).forEach((user) => {
+      Object.entries([user[0]]).forEach((order) => {
+        console.log(this.user);
+      })
     })
+
+ */
+
+
+
+
+
+
+
+    this.db.list('/').valueChanges().subscribe((t) => {
+      t.forEach((element: any) => {
+
+            console.log(element)
+            this.dataX.push(element.accx)
+            this.dataY.push(element.accy)
+            this.dataZ.push(element.accz)
+            this.date.push(element.date)
+
+
+        });
+
+        const myChart = new Chart('myChart', {
+          type: 'line',
+          data: {
+            labels: this.date,
+            datasets: [{
+              label: 'X Acceleration (G)',
+              data: this.dataX,
+
+              borderWidth: 1
+            },
+              {
+                label: 'Y Acceleration (G)',
+                data: this.dataY,
+
+                borderWidth: 1
+              },
+
+              {
+                label: 'Z Acceleration (G)',
+                data: this.dataZ,
+
+                borderWidth: 1
+              }
+
+            ],
+
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+
+              },
+
+            },
+
+
+          }
+        });
+        this.data$ = t
+
+
+      })
+
+
+    }
   }
-}
+
