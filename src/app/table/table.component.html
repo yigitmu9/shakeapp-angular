@@ -1,8 +1,9 @@
 <h1 class="h1">Data Table</h1>
 <div class="table-wrapper">
-  <table class="fl-table" >
+
+  <table class="fl-table">
     <thead>
-    <tr>
+    <tr >
       <th>Date and Time</th>
       <th>X Acceleration</th>
       <th>Y Acceleration</th>
@@ -12,19 +13,50 @@
       <th>Device</th>
     </tr>
     </thead>
-    <tbody >
-    <tr *ngFor="let year of years | async">
-      <td>{{year.payload.val().date}}</td>
-      <td>{{year.payload.val().accx}} G</td>
-      <td>{{year.payload.val().accy}} G</td>
-      <td>{{year.payload.val().accz}} G</td>
-      <td>{{year.payload.val().place}}</td>
-      <td>{{year.payload.val().coordinates}}</td>
-      <td>{{year.payload.val().device}}</td>
+    <tbody>
 
+    <tr *ngFor="let phone0 of phones0 | async">
+      <td>{{phone0.payload.val().date}}</td>
+      <td>{{phone0.payload.val().accx }} G</td>
+      <td>{{phone0.payload.val().accy}} G</td>
+      <td>{{phone0.payload.val().accz}} G</td>
+      <td>{{phone0.payload.val().place}}</td>
+      <td>{{phone0.payload.val().coordinates}}</td>
+      <td>{{phone0.payload.val().device}}</td>
+    </tr>
+
+    <!--
+    <tr *ngFor="let phone1 of phones1 | async">
+      <td>{{phone1.payload.val().date}}</td>
+      <td>{{phone1.payload.val().accx}} G</td>
+      <td>{{phone1.payload.val().accy}} G</td>
+      <td>{{phone1.payload.val().accz}} G</td>
+      <td>{{phone1.payload.val().place}}</td>
+      <td>{{phone1.payload.val().coordinates}}</td>
+      <td>{{phone1.payload.val().device}}</td>
     </tr>
 
 
+   <tr *ngFor="let phone2 of phones2 | async">
+     <td>{{phone2.payload.val().date}}</td>
+     <td>{{phone2.payload.val().accx}} G</td>
+     <td>{{phone2.payload.val().accy}} G</td>
+     <td>{{phone2.payload.val().accz}} G</td>
+     <td>{{phone2.payload.val().place}}</td>
+     <td>{{phone2.payload.val().coordinates}}</td>
+     <td>{{phone2.payload.val().device}}</td>
+   </tr>
+
+ <tr *ngFor="let phone3 of phones3 | async">
+     <td>{{phone3.payload.val().date}}</td>
+     <td>{{phone3.payload.val().accx}} G</td>
+     <td>{{phone3.payload.val().accy}} G</td>
+     <td>{{phone3.payload.val().accz}} G</td>
+     <td>{{phone3.payload.val().place}}</td>
+     <td>{{phone3.payload.val().coordinates}}</td>
+     <td>{{phone3.payload.val().device}}</td>
+   </tr>
+-->
     <tbody>
   </table>
 </div>

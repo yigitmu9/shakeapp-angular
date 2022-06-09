@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Firestore, collectionData, collection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import {AngularFireDatabase} from "@angular/fire/compat/database";
-import {AngularFirestore} from "@angular/fire/compat/firestore";
-import {getDatabase, onValue, ref} from "firebase/database";
-
-
 
 
 @Component({
@@ -14,23 +9,22 @@ import {getDatabase, onValue, ref} from "firebase/database";
   styleUrls: ['./table.component.css']
 })
 export class TableComponent {
+  phones0: Observable<any>;
+  phones1: Observable<any>;
+  phones2: Observable<any>;
+  phones3: Observable<any>;
 
-  years: Observable<any>;
-  constructor(db: AngularFireDatabase) {
 
-  this.years=db.list('/').snapshotChanges();
+  constructor(private db: AngularFireDatabase) {
 
+  this.phones0=db.list('/Yiğit\'s iPhone').snapshotChanges();
+  this.phones1=db.list('/').snapshotChanges();
+  this.phones2=db.list('/').snapshotChanges();
+  this.phones3=db.list('/').snapshotChanges();
   }
 
 
-
-  ngOnInit(): void {
-
-
-  }
-
-
-
+  ngOnInit(): void {}
 
 
 }

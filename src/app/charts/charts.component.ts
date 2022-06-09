@@ -1,9 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {map, Observable} from "rxjs";
 import {AngularFireDatabase} from "@angular/fire/compat/database";
-import {Chart, ChartDataset, ChartOptions } from 'chart.js';
-import { Color} from "chart.js";
-import { getDatabase, ref, onValue} from "firebase/database";
+import {Chart} from 'chart.js';
 
 
 @Component({
@@ -13,68 +10,51 @@ import { getDatabase, ref, onValue} from "firebase/database";
 })
 export class ChartsComponent {
 
-
+  //phone0
   data$: any;
-  //years: Observable<any>;
   dataX: number[] = [];
   dataY: number[] = [];
   dataZ: number[] = [];
   date: string[] = [];
-  todaysOrders: string[] = []
+
+  //phone1
+  data$$: any;
+  dataX1: number[] = [];
+  dataY1: number[] = [];
+  dataZ1: number[] = [];
+  date1: string[] = [];
+
 
   constructor(private db: AngularFireDatabase) {
-
-
-    /*
-        this.years = db.list('/').snapshotChanges();
-        //this.years.subscribe(payload => console.log(payload))
-        this.years = db.list('/').snapshotChanges().pipe(map(actions => {
-          return actions.map(a => {
-            const key = a.payload;
-            const id = a.payload.val();
-            // console.log(id);
-          })
-        }))
-
-     */
-
 
   }
 
   ngOnInit() {
+    //phone1
     /*
-    const datab = getDatabase();
-    const starCountRef = ref(datab, '/');
-    onValue(starCountRef, (snapshot) => {
-      const data = snapshot.val();
-      console.log(data)
-    });
+    this.db.list('/Yiğit’s iPad').valueChanges().subscribe((a) => {
+      a.forEach((element: any) => {
+
+
+        this.dataX1.push(element.accx)
+        this.dataY1.push(element.accy)
+        this.dataZ1.push(element.accz)
+        this.date1.push(element.date)
+
+
+      });
 
      */
 
-/*
-    Object.entries(this.db.list('/')).forEach((user) => {
-      Object.entries([user[0]]).forEach((order) => {
-        console.log(this.user);
-      })
-    })
-
- */
+      //phone0
+      this.db.list('/Yiğit\'s iPhone').valueChanges().subscribe((t) => {
+        t.forEach((element: any) => {
 
 
-
-
-
-
-
-    this.db.list('/').valueChanges().subscribe((t) => {
-      t.forEach((element: any) => {
-
-            console.log(element)
-            this.dataX.push(element.accx)
-            this.dataY.push(element.accy)
-            this.dataZ.push(element.accz)
-            this.date.push(element.date)
+          this.dataX.push(element.accx)
+          this.dataY.push(element.accy)
+          this.dataZ.push(element.accz)
+          this.date.push(element.date)
 
 
         });
@@ -84,28 +64,57 @@ export class ChartsComponent {
           data: {
             labels: this.date,
             datasets: [{
-              label: 'X Acceleration (G)',
+              label: 'X Acceleration(G)',
               data: this.dataX,
 
               borderWidth: 1
             },
               {
-                label: 'Y Acceleration (G)',
+                label: 'Y Acceleration(G)',
                 data: this.dataY,
 
                 borderWidth: 1
               },
 
               {
-                label: 'Z Acceleration (G)',
+                label: 'Z Acceleration(G)',
                 data: this.dataZ,
+
+                borderWidth: 1
+              },
+              /*
+              {
+                label: 'X Acceleration(G) Mac',
+                data: this.dataX1,
+
+                borderWidth: 1
+              },
+              {
+                label: 'Y Acceleration(G) Mac',
+                data: this.dataY1,
+
+                borderWidth: 1
+              },
+              {
+                label: 'Z Acceleration(G) Mac',
+                data: this.dataZ1,
 
                 borderWidth: 1
               }
 
+               */
+
             ],
 
-          },
+
+
+
+
+
+          }
+
+
+          ,
           options: {
             scales: {
               y: {
@@ -119,11 +128,12 @@ export class ChartsComponent {
           }
         });
         this.data$ = t
+        //this.data$$ = a
 
 
       })
 
 
-    }
+    //})
   }
-
+}

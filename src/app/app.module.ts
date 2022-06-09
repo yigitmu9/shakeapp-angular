@@ -17,11 +17,13 @@ import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
-import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+//import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import { ChartsComponent } from './charts/charts.component';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { NgApexchartsModule } from 'ng-apexcharts';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import {MatSortModule} from '@angular/material/sort';
+import {OrderModule} from "ngx-order-pipe";
 
 
 @NgModule({
@@ -35,7 +37,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFirestoreModule,
+    //AngularFirestoreModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
@@ -48,7 +50,10 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     provideStorage(() => getStorage()),
     NgChartsModule,
     MdbCheckboxModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    BrowserAnimationsModule,
+    //MatSortModule,
+    OrderModule
   ],
   providers: [
     ScreenTrackingService,UserTrackingService
