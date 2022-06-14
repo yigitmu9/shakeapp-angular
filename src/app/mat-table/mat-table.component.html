@@ -1,0 +1,62 @@
+<table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+       class="mat-elevation-z8">
+
+  <!-- Date Column -->
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by date">
+      Date and Time
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+  </ng-container>
+
+  <!-- accX Column -->
+  <ng-container matColumnDef="accx">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by accx">
+      X Acceleration (G)
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.accx}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="accy">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by accy">
+      Y Acceleration (G)
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.accy}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="accz">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by accz">
+      Z Acceleration (G)
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.accx}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="place">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by place">
+      Place
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.place}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="coordinates">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by coordinates">
+      Coordinates
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.coordinates}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="device">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by device">
+      Device
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.device}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

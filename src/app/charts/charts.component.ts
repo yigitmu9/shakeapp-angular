@@ -24,15 +24,61 @@ export class ChartsComponent {
   dataZ1: number[] = [];
   date1: string[] = [];
 
+  //phone2
+  data$$$: any;
+  dataX2: number[] = [];
+  dataY2: number[] = [];
+  dataZ2: number[] = [];
+  date2: string[] = [];
+
+  //phone3
+  data$$$$: any;
+  dataX3: number[] = [];
+  dataY3: number[] = [];
+  dataZ3: number[] = [];
+  date3: string[] = [];
+
 
   constructor(private db: AngularFireDatabase) {
 
   }
 
   ngOnInit() {
-    //phone1
+
+
+
     /*
-    this.db.list('/Yiğit’s iPad').valueChanges().subscribe((a) => {
+    //phone3
+    this.db.list('/').valueChanges().subscribe((t) => {
+      t.forEach((element: any) => {
+
+
+        this.dataX3.push(element.accx)
+        this.dataY3.push(element.accy)
+        this.dataZ3.push(element.accz)
+        this.date3.push(element.date)
+
+
+      });
+
+     */
+
+    //phone2
+    this.db.list('/').valueChanges().subscribe((t) => {
+      t.forEach((element: any) => {
+
+
+        this.dataX2.push(element.accx)
+        this.dataY2.push(element.accy)
+        this.dataZ2.push(element.accz)
+        this.date2.push(element.date)
+
+
+      });
+
+    //phone1
+
+    this.db.list('/Ata Baran iPhone’u').valueChanges().subscribe((a) => {
       a.forEach((element: any) => {
 
 
@@ -44,7 +90,7 @@ export class ChartsComponent {
 
       });
 
-     */
+
 
       //phone0
       this.db.list('/Yiğit\'s iPhone').valueChanges().subscribe((t) => {
@@ -64,45 +110,94 @@ export class ChartsComponent {
           data: {
             labels: this.date,
             datasets: [{
-              label: 'X Acceleration(G)',
+              label: 'X Acceleration(G) - iPhone0',
               data: this.dataX,
 
               borderWidth: 1
             },
+              //Phone0
               {
-                label: 'Y Acceleration(G)',
+                label: 'Y Acceleration(G) - iPhone0',
                 data: this.dataY,
 
                 borderWidth: 1
               },
 
               {
-                label: 'Z Acceleration(G)',
+                label: 'Z Acceleration(G) - iPhone0',
                 data: this.dataZ,
 
                 borderWidth: 1
               },
-              /*
+              //Phone1
+
               {
-                label: 'X Acceleration(G) Mac',
+                label: 'X Acceleration(G)- iPhone1',
                 data: this.dataX1,
 
                 borderWidth: 1
               },
               {
-                label: 'Y Acceleration(G) Mac',
+                label: 'Y Acceleration(G) - iPhone1',
                 data: this.dataY1,
 
                 borderWidth: 1
               },
               {
-                label: 'Z Acceleration(G) Mac',
+                label: 'Z Acceleration(G) - iPhone1',
+                data: this.dataZ1,
+
+                borderWidth: 1
+              },
+
+              //Phone2
+
+              {
+                label: 'X Acceleration(G) - iPhone2',
+                data: this.dataX1,
+
+                borderWidth: 1
+              },
+              {
+                label: 'Y Acceleration(G) - iPhone2',
+                data: this.dataY1,
+
+                borderWidth: 1
+              },
+              {
+                label: 'Z Acceleration(G) - iPhone2',
+                data: this.dataZ1,
+
+                borderWidth: 1
+              },
+
+              //Phone3
+              /*
+              {
+                label: 'X Acceleration(G) - iPhone3',
+                data: this.dataX1,
+
+                borderWidth: 1
+              },
+              {
+                label: 'Y Acceleration(G) - iPhone3',
+                data: this.dataY1,
+
+                borderWidth: 1
+              },
+              {
+                label: 'Z Acceleration(G) - iPhone3',
                 data: this.dataZ1,
 
                 borderWidth: 1
               }
 
                */
+
+
+
+
+
 
             ],
 
@@ -129,11 +224,15 @@ export class ChartsComponent {
         });
         this.data$ = t
         //this.data$$ = a
+        //this.data$$ = b
+        //this.data$$ = c
 
 
       })
 
 
+    })
+    })
     //})
   }
 }

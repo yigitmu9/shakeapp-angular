@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 .body {
-  padding: 3rem;
+  /* padding: 3rem; */
   text-align: center;
 }
 

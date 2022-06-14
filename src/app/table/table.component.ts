@@ -18,7 +18,7 @@ export class TableComponent {
   constructor(private db: AngularFireDatabase) {
 
   this.phones0=db.list('/Yiğit\'s iPhone').snapshotChanges();
-  this.phones1=db.list('/').snapshotChanges();
+  this.phones1=db.list('/Ata Baran iPhone’u').snapshotChanges();
   this.phones2=db.list('/').snapshotChanges();
   this.phones3=db.list('/').snapshotChanges();
   }

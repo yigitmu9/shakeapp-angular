@@ -17,27 +17,37 @@ import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
-//import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import { ChartsComponent } from './charts/charts.component';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//import {MatSortModule} from '@angular/material/sort';
 import {OrderModule} from "ngx-order-pipe";
+import {MatInputModule} from "@angular/material/input";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatSortModule} from "@angular/material/sort";
+import {MatTableModule} from "@angular/material/table";
+import { MatTableComponent } from './mat-table/mat-table.component';
+import {A11yModule} from '@angular/cdk/a11y';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatTabsModule} from "@angular/material/tabs";
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
-    ChartsComponent
+    ChartsComponent,
+    MatTableComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    //AngularFirestoreModule,
+    AngularFirestoreModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
@@ -52,8 +62,15 @@ import {OrderModule} from "ngx-order-pipe";
     MdbCheckboxModule,
     NgApexchartsModule,
     BrowserAnimationsModule,
-    //MatSortModule,
-    OrderModule
+    OrderModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatSortModule,
+    MatTableModule,
+    A11yModule,
+    MatToolbarModule,
+    MatTabsModule,
   ],
   providers: [
     ScreenTrackingService,UserTrackingService

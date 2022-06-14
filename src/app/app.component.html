@@ -1,3 +1,20 @@
-<app-charts></app-charts>
-<app-table></app-table>
-
+<div class="body">
+<div class="mat-toolbar">
+  <mat-toolbar>
+    <h1>ShakeApp Website</h1>
+  </mat-toolbar>
+</div>
+  <div class="my-theme">
+<mat-tab-group>
+  <mat-tab label="Chart">
+    <app-charts></app-charts>
+  </mat-tab>
+  <mat-tab label="New Table">
+    <app-mat-table></app-mat-table>
+  </mat-tab>
+  <mat-tab label="Old Table">
+    <app-table></app-table>
+  </mat-tab>
+</mat-tab-group>
+  </div>
+</div>
